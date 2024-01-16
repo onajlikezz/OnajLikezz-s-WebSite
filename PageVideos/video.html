@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+        <title>OnajLikezz's Videos</title>
+        <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <header>
+        <div class="nav-header">
+            <div class="logo">
+                <img src="../assets/logo.jpg" alt="OnajLikezz Logo">
+            </div>
+            <div>
+                <h1 class="site-title">OnajLikezz's Videos</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../PageProjects/projects.html">Projects</a></li>
+                    <li><a href="video.html">Videos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="video-container">
+        <div class="video-list">
+            <!-- Lista video snimaka -->
+            <div class="video-item" onclick="selectVideo(this, 'https://filemoon.sx/e/qtfs9sy3phne', 'Thumbnail', 'HOW TO CRACK STEAM ACCOUNTS! 2024')">
+                <img src="https://70games.net/view/img/logo3.png" alt="Thumbnail">
+                <p>HOW TO CRACK STEAM ACCOUNTS! 2024</p>
+            </div>
+            <!-- Dodajte ostale video snimke kao što je prikazano iznad -->
+        </div>
+
+        <div class="video-player">
+            <!-- Prikazuje odabrani video snimak -->
+            <iframe id="selected-video" width="100%" height="100%" src="" frameborder="0" allowfullscreen muted></iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
