@@ -18,15 +18,19 @@ header {
     justify-content: space-between; /* Poravnanje elemenata sa obe strane */
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+}
+
 .logo img {
     height: 40px; /* Podesite veličinu logo-a prema potrebi */
     width: 40px; /* Podesite veličinu logo-a prema potrebi */
     border-radius: 50%; /* Pretvaranje loga u krug */
 }
 
-.site-title {
-    margin: 0;
-    margin-left: 150px;
+.logo h1 {
+    margin: 0
 }
 
 .nav-header {

@@ -1,16 +1,37 @@
-function selectVideo(element, videoUrl, thumbnail, title) {
-    // Sklanja klasu "selected" sa svih elemenata
-    const videoItems = document.querySelectorAll('.video-item');
-    videoItems.forEach(item => item.classList.remove('selected'));
+function selectVideo(videoElement, videoSrc, thumbnailSrc, videoTitle, videoDescription) {
+    // Postavljanje iframe src atributa na odabrani video
+    document.getElementById('selected-video').src = videoSrc;
 
-    // Dodaje klasu "selected" na odabrani element
-    element.classList.add('selected');
+    // Postavljanje opisa videa
+    document.getElementById('video-description').textContent = videoDescription;
 
-    // Prikazuje odabrani video u video playeru
-    const videoPlayer = document.getElementById('selected-video');
-    videoPlayer.src = videoUrl;
+    // Postavljanje klase 'active' na trenutno selektovani video i uklanjanje 'active' klase sa prethodno selektovanog
+    var selectedVideo = document.querySelector('.video-item.active');
+    if (selectedVideo) {
+        selectedVideo.classList.remove('active');
+    }
+    videoElement.classList.add('active');
+}
 
-    // Postavlja thumbnail i naslov odabranog videa
-    document.getElementById('thumbnail').src = thumbnail;
-    document.getElementById('video-title').innerText = title;
+function searchVideos() {
+    // Dobijanje unetog teksta iz polja za pretragu
+    var searchText = document.getElementById('searchInput').value.toLowerCase();
+
+    // Dobijanje liste svih video zapisa
+    var videoItems = document.querySelectorAll('.video-item');
+
+    // Iteriranje kroz sve video zapise
+    videoItems.forEach(function(videoItem) {
+        // Dobijanje naslova video zapisa
+        var title = videoItem.querySelector('.video-title').textContent.toLowerCase();
+
+        // Provera da li naslov sadrži uneti tekst
+        if (title.includes(searchText)) {
+            // Ako naslov sadrži uneti tekst, prikaži video zapis
+            videoItem.style.display = 'block';
+        } else {
+            // Ako naslov ne sadrži uneti tekst, sakrij video zapis
+            videoItem.style.display = 'none';
+        }
+    });
 }

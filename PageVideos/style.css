@@ -30,6 +30,7 @@ header h1 {
     background-color: #292929;
     padding: 10px;
     overflow-y: auto;
+    bottom: 0; /* Postavljamo element na dno stranice */
 }
 
 .video-item {
@@ -92,4 +93,31 @@ nav a {
     text-decoration: none;
     color: #FFFFFF;
     font-weight: bold;
+}
+
+.video-description-container {
+    background-color: #1E1E1E; /* Svetliji box oko opisa */
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    max-height: 200px; /* Maksimalna visina za skrolovanje */
+    overflow-y: auto; /* Omogućava skrolovanje ako je opis prevelik */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Dodajemo ivicu */
+}
+
+.video-description {
+    color: #FFFFFF;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.video-details {
+    margin-left: 10px; /* Dodajemo razmak između thumbnailya i naslova */
+}
+
+.video-title {
+    color: #FFFFFF;
+    font-size: 16px;
+    margin: 0;
 }

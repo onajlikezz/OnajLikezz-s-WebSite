@@ -29,20 +29,27 @@
     
     <div class="video-container">
         <div class="video-list">
+            <!-- Dodajemo polje za pretragu -->
+            <div class="search-container">
+                <input type="text" id="searchInput" onkeyup="searchVideos()" placeholder="Search the site......">
+            </div>
             <!-- Lista video snimaka -->
-            <div class="video-item" onclick="selectVideo(this, 'https://filemoon.sx/e/qtfs9sy3phne', 'Thumbnail', 'HOW TO CRACK STEAM ACCOUNTS! 2024')">
+            <div class="video-item" onclick="selectVideo(this, 'https://filemoon.sx/e/qtfs9sy3phne', 'Thumbnail', 'HOW TO CRACK STEAM ACCOUNTS! 2024', 'Keep in mind that this site (https://70games.net) is constantly crashing lately!')">
                 <img src="https://70games.net/view/img/logo3.png" alt="Thumbnail">
-                <p>HOW TO CRACK STEAM ACCOUNTS! 2024</p>
+                <p class="video-title">HOW TO CRACK STEAM ACCOUNTS! 2024</p>
             </div>
             <!-- Dodajte ostale video snimke kao što je prikazano iznad -->
         </div>
-
+    
         <div class="video-player">
             <!-- Prikazuje odabrani video snimak -->
             <iframe id="selected-video" width="100%" height="100%" src="" frameborder="0" allowfullscreen muted></iframe>
+            <div class="video-description-container">
+                <p id="video-description" class="video-description"></p>
+            </div>
         </div>
-    </div>
-
+    </div>    
+    
     <script src="script.js"></script>
 </body>
 </html>
