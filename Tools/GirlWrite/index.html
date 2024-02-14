@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GirlWrite</title>
+    <style>
+        #canvasContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        canvas {
+            border: 1px solid black;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+    <!-- Učitaj prilagođeni font -->
+    <style>
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('putanja/do/fonta/custom-font.ttf'); /* Zamijenite putanjom do vašeg fonta */
+        }
+    </style>
+</head>
+<body>
+    <h1>GirlWrite</h1>
+    <div>
+        <label for="textInput">Unesite tekst koji želite vidjeti na papiru:</label><br>
+        <textarea id="textInput" rows="4" cols="50"></textarea><br>
+        <label for="imageSelect">Odaberite sliku:</label>
+        <select id="imageSelect">
+            <option value="NormalGirl.png">Devojka 1</option>
+            <option value="devojka2.png">Devojka 2</option>
+            <option value="devojka3.png">Devojka 3</option>
+            <!-- Dodajte ostale slike kao opcije -->
+        </select><br>
+        <button onclick="generirajSliku()">Generiraj sliku</button>
+    </div>
+    <div id="canvasContainer">
+        <!-- Ovdje će biti prikazane slike -->
+    </div>
+
+    <script>
+        // Mapiranje slika na setove koordinata teksta
+        var defaultCoordinates = {
+            "NormalGirl.png": { x: 420, y: 280, rotate: -25 },
+            "devojka2.png": { x: 100, y: 150, rotate: 0 },
+            "devojka3.png": { x: 200, y: 200, rotate: 40 }
+            // Dodajte nove slike i njihove koordinate ovdje
+        };
+
+        function generirajSliku() {
+            var tekst = document.getElementById('textInput').value;
+            var selectedImage = document.getElementById('imageSelect').value;
+            var textX = defaultCoordinates[selectedImage].x;
+            var textY = defaultCoordinates[selectedImage].y;
+            var rotateText = defaultCoordinates[selectedImage].rotate;
+
+            // Ukloni prethodno generiranu sliku ako postoji
+            var prethodnaSlika = document.getElementById('generiranaSlika');
+            if (prethodnaSlika) {
+                prethodnaSlika.parentNode.removeChild(prethodnaSlika);
+            }
+
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext('2d');
+            canvas.width = 800; // Postavite željenu širinu
+            canvas.height = 450; // Izračunajte visinu prema omjeru 16:9
+
+            var img = new Image();
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                ctx.font = '30px CustomFont'; // Koristi se prilagođeni font
+                ctx.fillStyle = 'black';
+
+                // Izračunaj širinu teksta
+                var textWidth = ctx.measureText(tekst).width;
+
+                // Postavite tekst na određeni dio slike (sredina teksta će biti na x i y koordinatama)
+                ctx.save(); // Spremi trenutno stanje konteksta
+                ctx.textAlign = 'center'; // Centriraj tekst horizontalno
+                ctx.textBaseline = 'middle'; // Centriraj tekst vertikalno
+                ctx.translate(textX, textY); // Postavi položaj teksta (sredina teksta će biti na x i y koordinatama)
+                if (rotateText) {
+                    ctx.rotate(Math.PI / 180 * rotateText); // Rotiraj tekst za odgovarajući broj stepeni
+                }
+                ctx.fillText(tekst, 0, 0); // Iscrtaj tekst na (0, 0) jer smo postavili položaj teksta pomoću translate()
+                ctx.restore(); // Vrati prethodno spremljeno stanje konteksta
+            };
+            img.src = '../assets/GirlWrite/' + selectedImage; // Putanja do odabrane slike
+            canvas.id = 'generiranaSlika';
+            document.getElementById('canvasContainer').appendChild(canvas);
+        }
+    </script>
+</body>
+</html>

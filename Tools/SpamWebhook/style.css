@@ -1,0 +1,125 @@
+body {
+    font-family: 'Exo 2', sans-serif;
+    background-color: rgba(71, 60, 139, 0.9); /* Tamnija i providna ljubičasta boja */
+    color: #FFFFFF; /* Bela boja teksta */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Stil za header */
+header {
+    background-color: #444444; /* Tamnija i providna ljubičasta boja za header */
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Poravnanje elemenata sa obe strane */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px; /* Podesite veličinu logo-a prema potrebi */
+    width: 40px; /* Podesite veličinu logo-a prema potrebi */
+    border-radius: 50%; /* Pretvaranje loga u krug */
+}
+
+.logo h1 {
+    margin: 0
+}
+
+.nav-header {
+    display: flex;
+    align-items: center; /* Poravnava tekst sa logom */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+/* Stil za sekcije */
+section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Stil za sekciju "home" */
+section.home {
+    background: url('../../assets/homepage.jpg') center/cover no-repeat;
+}
+
+/* Stil za tekst u sredini */
+.centered-text {
+    background-color: rgba(0, 0, 0, 0.7); /* Providna crna boja za pozadinu teksta */
+    color: #FFFFFF;
+    padding: 50px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 70%; /* Ograničava širinu teksta kako bi bio čitljiv */
+    text-align: center; /* Centrira tekst unutar kvadrata */
+}
+
+/* Stil za dugmad ispod centered-text */
+.centered-text .buttons {
+    padding: 15px 30px;
+    font-size: 16px;
+    margin-top: 20px; /* Dodajemo malo prostora iznad dugmadi */
+    margin-right: 10px; /* Dodajemo razmak između dugmadi */
+}
+
+/* Stil za svako dugme */
+.centered-text .buttons a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px; /* Razmak između dugmadi */
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #333333;
+    border: 2px solid #333333;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Stil za promenu boje kada je miš preko dugmeta */
+.centered-text .buttons a:hover {
+    background-color: #555555;
+    border-color: #555555;
+}
+
+/* Stil za footer */
+footer {
+    background-color: #444444; /* Tamnija i providna ljubičasta boja za footer */
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
