@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Poravnanje elemenata sa obe strane */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+.video {
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.video img {
+    width: 100%;
+    height: auto;
+}
+
+.video h2 {
+    margin: 10px;
+}
+
+video {
+    width: 100%;
+    display: block;
+    margin: 20px 0;
+}
+
+.back-button {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #333;
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.back-button:hover {
+    background-color: #e0e0e0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px; /* Podesite veličinu logo-a prema potrebi */
+    width: 40px; /* Podesite veličinu logo-a prema potrebi */
+    border-radius: 50%; /* Pretvaranje loga u krug */
+}
+
+.logo h1 {
+    margin: 0
+}
+
+.nav-header {
+    display: flex;
+    align-items: center; /* Poravnava tekst sa logom */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+}
